@@ -1,0 +1,457 @@
+// Variables
+$text-color: #6a7183;
+$primary-color: #fcdf77;
+$title-color: #1a2c5e;
+//==============================
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap');
+
+html {
+    font-size: 62.5%; // 1rem = 10px
+    font-family: "Poppins", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.body {
+    font-family: "Poppins", sans-serif;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.wrapper {
+    max-width: 1448px;
+    margin: 0 auto;
+
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.mr-30 {
+    margin-right: 30px;
+}
+//=======================
+
+// Interpolation
+@mixin flex($dir: row, $wrap: nowrap, $justify: flex-start, $align: flex-start) {
+    display: flex;
+    justify-content: $justify;
+    flex-wrap: $wrap;
+    align-items: $align;
+    flex-direction: $dir;
+}
+//===============================
+
+// header
+.header {
+    margin-top: 4rem;
+    &__inner {
+        @include flex(row, nowrap, space-between, center);
+    }
+    &__menu {
+        &-list {
+            display: flex;
+        }
+        &-item {
+            margin-left: 4rem;
+            &:last-child {
+                margin-left: 6rem;
+            }
+        }
+        &-link {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: $title-color;
+            transition: 0.3s;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+        &--loggin {
+            padding: 1rem 2.6rem;
+            border: 1px solid;
+            border-radius: 2rem;
+        }
+    }
+}
+
+.logo {
+    font-size: 2.6rem;
+    font-weight: 600;
+    & span {
+        color: $primary-color;
+    }
+}
+//=============================
+
+// banner
+.banner {
+    padding-top: 15rem;
+    max-width: 80rem;
+    margin: 0 auto;
+    text-align: center;
+    &__title {
+        font-size: 6rem;
+        font-weight: 700;
+        color: $title-color;
+    }
+    &__description {
+        padding: 5rem 5rem;
+        font-size: 2.2rem;
+        color: $text-color;
+        line-height: 2.6rem;
+    }
+}
+
+.btn {
+    padding: 1.6rem 3.6rem;
+    font-size: 2rem;
+    color: $title-color;
+    background-color: transparent;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    display: inline-block;
+    &--border {
+        border: 1px solid;
+    }
+    &--radius {
+        border-radius: 2.6rem;
+    }
+    &--shadow {
+        box-shadow: 0 40px 120px 0 $primary-color;
+    }
+    &--primary {
+        background-color: $primary-color;
+    }
+}
+//================================
+
+// category zone
+.category-zone {
+    margin-top: 18rem;
+    &__list {
+        @include flex(row, wrap, space-between, strecth);
+    }
+    &__item {
+        width: calc(25% - 22.5px);
+        background-color: bisque;
+        padding: 0 3rem 4rem 3rem;
+        border-radius: 2rem;
+        // giúp detail ngang hàng với các detail của item khác nếu có một phần tử dài hơn các phần tử của item khác
+        @include flex(column, nowrap, flex-start, strecth);
+        &:first-child {
+            box-shadow: 0 5rem 10rem 1rem rgba(93,1,6, 0.4);
+        }
+        &:nth-child(2) {
+            box-shadow: 0 5rem 10rem 1rem rgba(82,86,98, 0.4);
+        }
+        &:nth-child(3) {
+            box-shadow: 0 5rem 10rem 1rem rgba(254,206,127, 0.4);
+        }
+        &:last-child {
+            box-shadow: 0 5rem 10rem 1rem rgba(97,148,143, 0.4);
+        }
+    }
+    &__img {
+        border-radius: 2rem;
+        object-fit: contain;
+    }
+    &__title {
+        margin: 4rem 0 3rem 0;
+        font-size: 2.6rem;
+        font-weight: 500;
+        color: $title-color;
+        // one line ...
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__detail {
+        color: $text-color;
+        font-size: 1.6rem;
+        margin-top: auto;
+    }
+}
+//==============================
+
+// introduce
+.introduce {
+    margin-top: 18rem;
+    &__item {
+        @include flex(row, nowrap, space-between, center);
+        margin-bottom: 15rem;
+        height: 82.5rem;
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+    }
+    &__image,
+    &__detail 
+    {
+        width: calc(50% - 5rem);
+    }
+    &__title {
+        font-size: 4.5rem;
+        font-weight: 500;
+        line-height: 5rem;
+        color: $title-color;
+    }
+    &__description {
+        margin: 4rem 0 5.8rem 0;
+        font-size: 1.8rem;
+        color: $text-color;
+        line-height: 3rem;
+    }
+    &__info {
+        &-item {
+            font-size: 1.8rem;
+            color: $title-color;
+            line-height: 4rem;
+            font-weight: 600;
+            // khoảng cách giữa chữ và dấu ngạch ngang là 1rem
+            text-decoration-line: underline;
+            text-underline-offset: 1rem;
+            //
+            margin-bottom: 4rem;
+            &:last-child {
+                margin-bottom: 4.6rem;
+            }
+            &--circle {
+                text-decoration-line: none;
+                position: relative;
+                padding-left: 4rem;
+                &::before {
+                    position: absolute;
+                    content: "";
+                    display: block;
+                    top: 50%;
+                    left: 0;
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 50%;
+                    transform: translateY(-50%);
+                }
+                &:first-child::before {
+                    background-color: #ff69ea;
+                }
+                &:nth-child(2)::before {
+                    background-color: #99fa3b;
+                }
+                &:nth-child(3)::before {
+                    background-color: #13c3fe;
+                }
+                &:nth-child(4)::before {
+                    background-color: #fa899b;
+                }
+            }
+        }
+    }
+    &__service {
+        width: calc(50% - 1.5rem);
+        margin-bottom: 5rem;
+        &-list {
+            @include flex(row, wrap, space-between, flex-start);
+        }
+        &-icon {
+            width: 5rem;
+            height: 5rem;
+            font-size: 2rem;
+            border-radius: 0.4rem;
+            margin-bottom: 1rem;
+            position: relative;
+            @include flex(row, nowrap, center, center);
+            &::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "";
+                width: 100%;
+                height: 100%;
+                border-radius: inherit;
+                opacity: 0.2;
+                background-color: currentColor;
+            }
+        }
+        &:first-child .introduce__service-icon {
+            color: #77b8bc;
+        }
+        &:nth-child(2) .introduce__service-icon {
+            color: #e1c079;
+        }
+        &:nth-child(3) .introduce__service-icon {
+            color: #b09cbf;
+        }
+        &:last-child .introduce__service-icon {
+            color: #cbf0cf;
+        }
+        &-title {
+            font-size: 2.2rem;
+            color: $title-color;
+            font-weight: 600;
+            line-height: 2.6rem;
+        }
+        &-description {
+            font-size: 1.6rem;
+        }
+    }
+}
+//=================================
+
+// partner
+.partner {
+    margin-top: 20rem;
+    text-align: center;
+    &-inner {
+        max-width: 83rem;
+        &__title {
+            font-size: 2.6rem;
+            font-weight: 520;
+            padding-bottom: 7rem;
+            border-bottom: 2px solid;
+            color: $title-color;
+        }
+        &__list {
+            margin-top: 7rem;
+            @include flex(row, nowrap, space-between);
+            padding: 0 2rem;
+        }
+        &__item {
+            font-size: 6rem;
+            color: $title-color;
+        }
+    }
+}
+//=========================================
+
+// themeselve
+.themeseleve {
+    margin-top: 20rem;
+    text-align: center;
+    &__title {
+        font-size: 3rem;
+        color: $title-color;
+        font-weight: 550;
+        margin-bottom: 4rem;
+    }
+    &__slogan {
+        font-size: 1.8rem;
+        color: $text-color;
+        margin-bottom: 6rem;
+        & span {
+            color: $primary-color;
+            font-weight: 500;
+        }
+    }
+    &__list {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__item {
+        width: calc(25% - 22.5px);
+        & img {
+            object-fit: cover;
+            height: 27.7rem;
+            border-radius: 2rem;
+        }
+    }
+}
+//=================================
+
+// subcribe
+.subscribe {
+    margin-top: 18rem;
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8rem;
+    }
+    &__info,
+    &__title
+    {
+        width: 50%;
+    }
+    &__title {
+        font-size: 3rem;
+        font-weight: 500;
+        color: $title-color;
+        padding-right: 10rem;
+    }
+    &__form {
+        background-color: #f2f1f6;
+        display: flex;
+        border-radius: 1rem;
+    }
+    &__input {
+        border: none;
+        background-color: transparent;
+        padding: 3rem;
+        font-size: 2rem;
+        outline: none;
+        flex-grow: 1;
+    }
+    &__btn {
+        font-size: 2rem;
+        background-color: transparent;
+        font-weight: 530;
+        outline: none;
+        border: none;
+        padding: 3rem;
+        color: $title-color;
+    }
+    &__social {
+        margin-top: 5rem;
+    }
+    &__icon {
+        margin-left: 4rem;
+        font-size: 3rem;
+        color: $title-color;
+    }
+}
+//====================================
+
+// footer
+.footer {
+    &__list {
+        border-top: 2px solid;
+        border-bottom: 1px solid;
+        padding: 6rem 0 20rem 0;
+        @include flex(row, nowrap, space-between);
+    }
+    &__item {
+        width: 25%;
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 4rem;
+        color: $title-color;
+    }
+    &__content {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: space-between;
+        &__text {
+            color: $title-color;
+            font-size: 1.8rem;
+        }
+
+    }
+
+}
+//======================================================
+
