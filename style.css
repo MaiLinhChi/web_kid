@@ -73,13 +73,10 @@ img {
   border-radius: 2rem;
 }
 
-.menu-mobile {
-  display: none;
-}
-
 .logo {
   font-size: 2.6rem;
   font-weight: 600;
+  color: #1a2c5e;
 }
 .logo span {
   color: #fcdf77;
@@ -185,7 +182,7 @@ img {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
-  align-items: stretch;
+  align-items: center;
   flex-direction: row;
   margin-bottom: 15rem;
   height: 82.5rem;
@@ -428,6 +425,8 @@ img {
   font-size: 1.8rem;
   font-weight: 500;
   line-height: 4rem;
+}
+.footer__item-link {
   color: #1a2c5e;
 }
 .footer__content {

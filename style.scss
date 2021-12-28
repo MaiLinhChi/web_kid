@@ -94,6 +94,7 @@ img {
 .logo {
     font-size: 2.6rem;
     font-weight: 600;
+    color: $title-color;
     & span {
         color: $primary-color;
     }
@@ -439,7 +440,9 @@ img {
         font-size: 1.8rem;
         font-weight: 500;
         line-height: 4rem;
-        color: $title-color;
+        &-link {
+            color: $title-color;
+        }
     }
     &__content {
         margin-top: 3rem;

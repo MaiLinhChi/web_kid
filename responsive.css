@@ -254,7 +254,7 @@
     /* ======================================== */
 }
 
-@media (min-width: 23.4375em) and (max-width: 37.4375em) {
+@media (max-width: 37.4375em) {
   /* header */
   .header__menu {
     display: none;
